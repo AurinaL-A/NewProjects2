@@ -11,6 +11,10 @@ class MainController extends Controller
     {
         return view('home');
     }
+    public function main()
+    {
+        return view('layouts.main');
+    }
 
     public function showArray()
     {

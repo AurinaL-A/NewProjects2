@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
@@ -13,7 +12,7 @@
     <div class="container">
             <div class="header__row">
                 <div class="logo">
-                    <p class="logo__text"><img src="../image/logo.svg" alt=""></p>
+                    <p class="logo__text ">Нарушений.нет</p>
                 </div>
                     <ul class="menu">
                         <li class="menu__link"><a href="/">Главная</a></li>
@@ -23,22 +22,10 @@
         </div>
         
     </header>
-    <main>
-        <div class="container">
-            <div class="main__row">
-                <div class="cards">
-                    @foreach($array as $item)
-                    <div class="card">
-                        <img src="{{ $item['path'] }}" alt="{{ $item['title'] }}">
-                        <h3>{{ $item['title'] }}</h3>
-                        <p>Цена: {{ $item['price'] }} ₽</p>
-                    </div>
-                @endforeach
-                </div>
-            </div>
-        </div>
-
+    <main class="container mx-auto p-4">
+        @yield('content') 
     </main>
+ 
     <footer class="footer">
     <div class="container">
             <div class="footer__row">
