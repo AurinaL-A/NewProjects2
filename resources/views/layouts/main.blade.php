@@ -16,7 +16,7 @@
                 </div>
                     <ul class="menu">
                         <li class="menu__link"><a href="/">Главная</a></li>
-                        <li class="menu__link"><a href="/array">Массивы</a></li>
+                        <li class="menu__link"><a href="/">Массивы</a></li>
                     </ul>
             </div>
         </div>
