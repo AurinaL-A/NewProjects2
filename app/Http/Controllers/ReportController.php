@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\reports;
+use App\Models\Report;
+
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Xml\Report;
 
 class ReportController extends Controller
 {
     public function index()
     {
-        $reports = reports::all();
-        return view('report.index', ['reports' => $reports]); 
+        $report = report::all();
+        return view('report.index', ['report' => $report]); 
     }
 
-    public function destroy(Reports $report){
+    public function destroy(Report $report){
         $report -> delete();
         return redirect()->back();
     }
-    public function store(Request $request,Reports $report){
+    public function store(Request $request,Report $report){
         $data = $request -> validate([
             'number' => 'string',
             'description' => 'string',
@@ -31,9 +31,9 @@ class ReportController extends Controller
     public function show(Report $report)
     {
        
-        return view('reports.show', compact('report')); 
+        return view('report.show', compact('report')); 
     }
-    public function update(Request $request,Reports $report){
+    public function update(Request $request,Report $report){
         $data = $request -> validate([
             'number' => 'string',
             'description' => 'string',

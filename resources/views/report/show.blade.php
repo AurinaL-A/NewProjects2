@@ -7,7 +7,7 @@
 
     <form method="POST" action="{{ route('reports.update', $report->id) }}">
         @csrf
-        @method('put)
+        @method('put')
         <div class="mb-4">
             <label for="number" class="block text-gray-700 text-sm font-bold mb-2">Номер авто:</label>
             <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="number" name="number" value="{{ $report->number }}">
