@@ -15,8 +15,19 @@ return new class extends Migration
             $table->id();
             $table->string('number');
             $table->text('description');
+            $table->foreignId('statyses_id')
+            ->nullable()
+            ->constrained()
+            ->cascadeOnUpdate()
+            ->nullOnDelete(); 
+            $table->foreignId('users_id')
+            ->nullable()
+            ->constrained()
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
             $table->softDeletes();
             $table->timestamps();
+
         });
     }
 

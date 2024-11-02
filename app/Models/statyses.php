@@ -5,7 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class statyses extends Model
+class Statyses extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+    ];
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }

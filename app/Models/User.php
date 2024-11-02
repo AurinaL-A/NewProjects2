@@ -18,8 +18,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'middlename',
+        'surname',
+        'login',
         'password',
+        'tel',
+        'role',
+        'email',
+        'email_verified_at'
     ];
 
     /**
@@ -43,5 +49,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
     }
 }
