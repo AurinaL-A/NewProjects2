@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ReportController;
+use App\Http\Middleware\Admin;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,3 +35,7 @@ Route::delete('/reports/{report}',[ReportController::class,'destroy'])->name('re
 Route::post('/reports',[ReportController::class,'store'])->name('reports.store');
 Route::get('/reports/{report}', [ReportController::class, 'show'])->name('reports.show');
 Route::put('/reports/{report}',[ReportController::class,'update'])->name('reports.update');
+
+Route::middleware((Admin::class))->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin'); // Изменение
+});

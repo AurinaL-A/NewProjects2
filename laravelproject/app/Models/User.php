@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -18,14 +19,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'middlename',
-        'surname',
-        'login',
-        'password',
-        'tel',
-        'role',
         'email',
-        'email_verified_at'
+        'password',
     ];
 
     /**
@@ -49,13 +44,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-    public function reports()
-    {
-        return $this->hasMany(Report::class);
-    }
-    const ADMIN_ROLE = 'admin';
-    public function isAdmin(){
-        return $this-> role === self::ADMIN_ROLE;
     }
 }
