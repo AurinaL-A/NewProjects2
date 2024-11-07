@@ -17,12 +17,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'login',
+        'password',
         'name',
         'middlename',
         'surname',
-        'login',
-        'password',
         'tel',
+        'adress',
         'role',
         'email',
         'email_verified_at'
@@ -57,5 +58,8 @@ class User extends Authenticatable
     const ADMIN_ROLE = 'admin';
     public function isAdmin(){
         return $this-> role === self::ADMIN_ROLE;
+    }
+    public function fullname(){
+        return $this -> lastname.' '.$this -> name.' '.$this -> middlename;
     }
 }
