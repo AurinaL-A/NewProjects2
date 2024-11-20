@@ -6,51 +6,50 @@
         @csrf
 
         <div>
-            <x-input-label for="login" :value="__('Login')" />
-            <x-text-input id="login" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="login" />
+            <x-text-input id="login" :placeholder="__('Login')" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="login" />
             <x-input-error :messages="$errors->get('login')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
                             name="password"
+                            :placeholder="__('Password')"
                             required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <div class="mt-4">
+            <x-text-input id="name" :placeholder="__('Name')" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-        <div>
-            <x-input-label for="middlename" :value="__('Middlename')" />
-            <x-text-input id="middlename" class="block mt-1 w-full" type="text" name="middlename" :value="old('middlename')" required autofocus autocomplete="middlename" />
+        <div class="mt-4">
+
+            <x-text-input id="middlename" :placeholder="__('Middlename')" class="block mt-1 w-full" type="text" name="middlename" :value="old('middlename')" required autofocus autocomplete="middlename" />
             <x-input-error :messages="$errors->get('middlename')" class="mt-2" />
         </div>
-        <div>
-            <x-input-label for="surname" :value="__('Surname')" />
-            <x-text-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" />
+        <div class="mt-4">
+
+            <x-text-input id="surname" :placeholder="__('Surname')"  class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus autocomplete="surname" />
             <x-input-error :messages="$errors->get('surname')" class="mt-2" />
         </div>
 
 
         <!-- tel -->
         <div class="mt-4">
-            <x-input-label for="tel" :value="__('Telephone')" />
-            <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required autocomplete="tel" />
+
+            <x-text-input id="tel" :placeholder="__('Telephone')" class="block mt-1 w-full" type="tel" name="tel" :value="old('tel')" required autocomplete="tel" />
             <x-input-error :messages="$errors->get('tel')" class="mt-2" />
         </div>
+
+        
         <!--  Address -->
         <div class="mt-4">
-            <x-input-label for="adress" :value="__('Adress')" />
-            <x-text-input id="adress" class="block mt-1 w-full" type="adress" name="adress" :value="old('adress')" required autocomplete="adress" />
+            <x-text-input id="adress" class="block mt-1 w-full" type="adress" :placeholder="__('Adress')" name="adress" :value="old('adress')" required autocomplete="adress" />
             <x-input-error :messages="$errors->get('adress')" class="mt-2" />
         </div>
 
@@ -58,23 +57,24 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <x-text-input id="password_confirmation" class="block mt-1 w-full" :placeholder="__('Confirm Password')"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
+        <div class="flex items-center flex-col justify-end mt-4">
+        <x-primary-button class=" flex items-center justify-center size-full bg-blue-700">
+                {{ __('Create an account') }}
             </x-primary-button>
+            <div class="flex gap-1 pt-3	">
+                <p>{{ __('Do you already have an account?') }}</p>
+                <a class=" text-blue-800 font-medium hover:text-blue-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                {{ __('Login') }}
+            </a>
+            </div>
         </div>
     </form>
 </x-guest-layout>
