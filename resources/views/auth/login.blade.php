@@ -9,8 +9,8 @@
     
         <!-- Email Address -->
         <div>
-            <x-text-input id="email" :placeholder="__('Email')" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-text-input id="login" :placeholder="__('Login')" class="block mt-1 w-full" type="text" name="login" :value="old('login')" required autofocus autocomplete="login" />
+            <x-input-error :messages="$errors->get('login')" class="mt-2" />
         </div>
 
         <!-- Password -->

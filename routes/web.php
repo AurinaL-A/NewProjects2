@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/',   [MainController::class,   'showIndex'])->name('home');
+Route::get('/',[ReportController::class,'index'])->middleware(['auth','verified'])->name('dashboard');
 
 Route::get('array',   [MainController::class,   'showArray'])->name('array');
 
