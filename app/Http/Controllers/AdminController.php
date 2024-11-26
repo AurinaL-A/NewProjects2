@@ -11,9 +11,9 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $reports = Report::all(); // Получение всех заявок
-        $statuses = Statyses::all(); // Получение всех статусов
+        $report = Report::all(); // Получение всех заявок
+        $status = Statyses::all(); // Получение всех статусов
 
-    return view('admin.index', compact('reports', 'statuses')); // Передача данных в представление
+    return view('admin.index', compact('report', 'status')); // Передача данных в представление
     }
 }
