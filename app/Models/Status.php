@@ -4,15 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Statyses extends Model
+class Status extends Model
 {
-    use HasFactory;
-    protected $fillable = [
-        'name',
-    ];
-
-    public function reports()
+    public function reports(): HasMany
     {
         return $this->hasMany(Report::class);
     }

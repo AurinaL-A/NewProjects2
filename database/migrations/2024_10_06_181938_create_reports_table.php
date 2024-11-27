@@ -13,21 +13,20 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('number');
-            $table->text('description');
-            $table->foreignId('statyses_id')
-            ->nullable()
-            ->constrained()
-            ->cascadeOnUpdate()
-            ->nullOnDelete(); 
-            $table->foreignId('users_id')
-            ->nullable()
-            ->constrained()
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
-            $table->softDeletes();
+            $table->string("number");
+            $table->text("description");
+            $table->foreignId('user_id')
+                  ->nullable()
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
+            $table->foreignId('status_id')
+                  ->nullable()
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 

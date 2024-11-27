@@ -35,5 +35,6 @@ Route::get('/reports/{report}', [ReportController::class, 'show'])->name('report
 Route::put('/reports/{report}',[ReportController::class,'update'])->name('reports.update');
 
 Route::middleware((Admin::class))->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin'); // Изменение
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index'); // Изменение
+    Route::patch('/update',[ReportController::class,'update'])->name('report.update');
 });
