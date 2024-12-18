@@ -1,35 +1,31 @@
 @vite(['resources/css/app.css','resources/js/app.js'])
+@include('layouts.flash-messages')
 <x-app-layout>
-    <x-slot name="header">
-        <h1 class="font-semibold text-xl text-gray-800 leading-tight">Список заявок</h1>
-        <x-nav-link :href="route('reports.create')">
+<x-slot name="header">
+        <div class="w-full flex justify-between items-center">
+            
+            <a href="{{route('reports.create')}}" data-modal-target="default-modal" data-modal-toggle="default-modal" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 h-12 text-center flex items-center" type="button">
             {{__('Создать заявление')}}
-        </x-nav-link>
-    </x-slot>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg flex flex-col gap-2 p-5">
+            </a> 
 
-                @foreach($reports as $report)
-                <div class="bg-white shadow-sm sm:rounded-lg p-4 border border-gray-200 ">
-                    <div class="flex justify-between items-center mb-2">
-                        <p class="text-red-500 font-semibold">{{ \Carbon\Carbon::parse($report->created_at)->translatedFormat('d.m.Y') }}</p>
-                        @if ($report->status_id == 1)
-                        <span class="text-blue-500 font-semibold">новое</span>
-                        @elseif ($report->status_id == 2)
-                        <span class="text-red-500 font-semibold">отклонено</span>
-                        @else
-                        <span class="text-blue-500 font-semibold">подтверждено</span>
-                        @endif
-                    </div>
-                    <p class="font-bold">{{ $report->number }}</p>
-                    <p class="text-gray-700">{{ $report->description }}</p>
-                </div>
-                @endforeach
-            </div>
         </div>
+    </x-slot>
+    <div class="max-w-7xl mx-auto py-6 px-4 flex flex-col gap-5 flex-wrap justify-between">
+
+        @foreach ($reports as $report)
+        <div class="bg-white flex flex-col gap-5 p-4  rounded-xl w-full">
+            <p class="text-red-700 font-bold">
+                {{\Carbon\Carbon::parse($report->created_at)->toDateString()}}
+            </p>
+            <div class="flex justify-between gap-1 flex-wrap">
+                <p class="font-bold">
+                        {{ $report->number }}
+                </p>
+                <p class="text-left">{{ $report['description'] }}</p>
+                <p id="statusText" class="font-bold statusText">{{ $report->status->name }}</p>
+            </div>
+            
+        </div>
+        @endforeach
     </div>
-
-
-
 </x-app-layout>

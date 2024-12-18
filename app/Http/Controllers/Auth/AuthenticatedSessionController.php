@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('admin.index');
         }
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        return redirect()->intended(route('dashboard', absolute: false))->with('success','Вы вошли в систему');;
     }
 
     /**

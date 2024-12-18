@@ -45,7 +45,7 @@ class ReportController extends Controller
             'status_id' => 1,
         ]);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('info','Заявление отправлено');
     }
 
     public function update(Request $request)

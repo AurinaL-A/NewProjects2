@@ -1,10 +1,11 @@
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-3xl font-bold py-5">
             {{ __('Создание нового заявления')}}
         </h2>
     </x-slot>
-
+@include('layouts.flash-messages')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
